@@ -30,8 +30,7 @@ Final/
 
 ## Environment setup (Princeton cluster with A100 GPU)
 
-The code requires JAX with CUDA support. On the Princeton cluster the
-pre-built `GPU_Python` conda environment already contains all dependencies.
+The code requires JAX with CUDA support. 
 
 ### Activate the environment
 
