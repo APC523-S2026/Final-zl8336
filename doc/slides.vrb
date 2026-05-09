@@ -1,0 +1,24 @@
+\frametitle{Basic Usage}
+\begin{lstlisting}[language=Python]
+from main import HelmholtzSolver1D
+import numpy as np
+
+def eps_tanh(z, eps1=1.0, eps2=4.0, zc=0.0, delta=0.33):
+    return (eps1+eps2)/2 + (eps2-eps1)/2 * np.tanh((z-zc)/delta)
+
+solver = HelmholtzSolver1D(eps_tanh, z1=-1.0, z2=+1.0,
+                           theta_deg=45.0, pol='S', lambda0=1.0)
+result_ode = solver.solve_ode()
+result_fem = solver.solve_fem(res_trans=200, res_ext=100, order=2)
+solver.energy_check(result_ode['r'], result_ode['t'])   # R+T should be ~1
+solver.plot_field(result_ode)
+\end{lstlisting}
+
+  \begin{columns}[T]
+    \column{0.48\textwidth}
+      \includegraphics[width=\linewidth]{Tanh_permittivity_profile.png}
+      \centering{\footnotesize Tanh $\varepsilon_r(z)$, $\varepsilon_1{=}1$, $\varepsilon_2{=}4$}
+    \column{0.48\textwidth}
+      \includegraphics[width=\linewidth]{Tanh_Field.png}
+      \centering{\footnotesize Field profile, $\theta{=}45°$, TE}
+  \end{columns}

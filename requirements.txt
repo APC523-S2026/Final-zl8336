@@ -1,0 +1,16 @@
+# 1D Helmholtz EM Solver — Python dependencies
+# Tested with conda env GPU_Python (JAX + CUDA)
+#
+# Install:
+#   pip install -r requirements.txt
+#
+# For GPU support, install jax with CUDA extras first:
+#   pip install "jax[cuda12]"
+
+jax==0.9.2
+jaxlib==0.9.2
+diffrax==0.7.2
+equinox==0.13.7
+numpy==2.4.4
+scipy==1.17.1
+matplotlib==3.10.8
